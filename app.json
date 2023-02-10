@@ -28,6 +28,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "884b7c9d-7e19-4bae-bade-be09cc2a7653"
+      }
+    },
+    "owner": "okeoluwayomi"
   }
 }
