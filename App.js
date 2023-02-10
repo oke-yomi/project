@@ -8,7 +8,7 @@ const Stack = createNativeStackNavigator();
 export default function App() {
 	return (
 		<>
-			<StatusBar barStyle="dark-content" />
+			<StatusBar barStyle="dark-content" backgroundColor='white' />
 			<NavigationContainer>
 				<Stack.Navigator>
 					<Stack.Screen
