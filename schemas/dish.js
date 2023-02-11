@@ -19,12 +19,12 @@ export default defineType({
 		}),
 		defineField({
 			name: "price",
-			title: "Price od dish in NGN",
+			title: "Price of dish in NGN",
 			type: "number",
 		}),
 		defineField({
 			name: "image",
-			title: "Image od dish",
+			title: "Image of dish",
 			type: "image",
 		}),
 	],
