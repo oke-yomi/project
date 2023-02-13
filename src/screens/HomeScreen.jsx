@@ -6,7 +6,7 @@ import {
 	TextInput,
 	View,
 } from "react-native";
-import React, { useLayoutEffect } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import {
 	AdjustmentsVerticalIcon,
@@ -16,15 +16,37 @@ import {
 } from "react-native-heroicons/outline";
 import Categories from "../components/Categories";
 import FeaturedRow from "../components/FeaturedRow";
+import client from "../../client";
 
 const HomeScreen = () => {
 	const navigation = useNavigation();
+	const [featuredCategories, setFeaturedCategories] = useState([]);
 
 	useLayoutEffect(() => {
 		navigation.setOptions({
 			headerShown: false,
 		});
 	}, []);
+
+	useEffect(() => {
+		client
+			.fetch(
+				`
+					*[_type == 'featured'] {
+						...,
+						restaurants[]-> {
+							...,
+							dishes[]->
+						}
+					}
+				`
+			)
+			.then((data) => {
+				setFeaturedCategories(data);
+			});
+	}, []);
+
+	// console.log(featuredCategories)
 
 	return (
 		<>
@@ -44,10 +66,7 @@ const HomeScreen = () => {
 						</Text>
 						<Text className="font-bold text-xl">
 							Current location
-							<ChevronDownIcon
-								size={20}
-								color="#00ccbb"
-							/>
+							<ChevronDownIcon size={20} color="#00ccbb" />
 						</Text>
 					</View>
 
@@ -57,10 +76,7 @@ const HomeScreen = () => {
 				{/* Search */}
 				<View className="flex-row items-center space-x-2 pb-2 mx-4 px-1">
 					<View className="flex-row space-x-2 bg-gray-200 p-3 flex-1">
-						<MagnifyingGlassIcon
-							color={"gray"}
-							size={20}
-						/>
+						<MagnifyingGlassIcon color={"gray"} size={20} />
 
 						<TextInput
 							placeholder="Restaurant and cuisines"
@@ -80,25 +96,14 @@ const HomeScreen = () => {
 					<Categories />
 
 					{/* featured rows */}
-					<FeaturedRow
-						id="1"
-						title="Featured"
-						description="Paid placeents from our partners"
-					/>
-
-					{/* Tasty Discounts */}
-					<FeaturedRow
-						id="12"
-						title="Tasty Discounts"
-						description="Paid placeents from our partners"
-					/>
-
-					{/* Offers near you */}
-					<FeaturedRow
-						id="123"
-						title="Offers near you"
-						description="Paid placeents from our partners"
-					/>
+					{featuredCategories?.map((category) => (
+						<FeaturedRow
+							key={category._id}
+							id={category._id}
+							title={category.name}
+							description={category.short_description}
+						/>
+					))}
 				</ScrollView>
 			</SafeAreaView>
 		</>
