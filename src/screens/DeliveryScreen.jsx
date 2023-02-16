@@ -5,7 +5,7 @@ import {
 	TouchableOpacity,
 	Image,
 } from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { useSelector } from "react-redux";
 import { selectRestaurant } from "../features/restaurantSlice";
@@ -13,10 +13,21 @@ import { XMarkIcon } from "react-native-heroicons/outline";
 import * as Progress from "react-native-progress";
 import MapView, { Marker } from "react-native-maps";
 import call from "react-native-phone-call";
+import {
+	initialize,
+	showMessaging,
+} from "@flashcoffee/react-native-zendesk-messaging";
+import { CHANNEL_KEY_ANDROID, CHANNEL_KEY_IOS } from "../../config";
 
 const DeliveryScreen = () => {
 	const navigation = useNavigation();
 	const restaurant = useSelector(selectRestaurant);
+
+	useEffect(() => {
+		initialize(
+			Platform.OS === "android" ? CHANNEL_KEY_ANDROID : CHANNEL_KEY_IOS
+		);
+	}, []);
 
 	const triggerCall = () => {
 		const phoneNumber = "08144976291";
@@ -38,7 +49,8 @@ const DeliveryScreen = () => {
 						<TouchableOpacity onPress={() => navigation.navigate("Home")}>
 							<XMarkIcon color="white" size={30} />
 						</TouchableOpacity>
-						<Text className="font-light text-white text-lg">Order Help</Text>
+
+						<Text className="font-light text-white text-lg">Support</Text>
 					</View>
 
 					<View className="bg-white mx-5 my-2 rounded-md p-6 z-50 shadow-md">

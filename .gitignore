@@ -18,4 +18,6 @@ packageSanity.json
 
 .env
 .env.*
-.vscode
+# .vscode
+
+Notes.md

@@ -1756,6 +1756,11 @@
     find-up "^5.0.0"
     js-yaml "^4.1.0"
 
+"@flashcoffee/react-native-zendesk-messaging@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@flashcoffee/react-native-zendesk-messaging/-/react-native-zendesk-messaging-1.0.4.tgz#013be93ba5c1af46e8571bc36a335cba54ad797b"
+  integrity sha512-jieJNxQe9OZ2CFLF8JJkSLokpd71Kwam3B8Arlx/MVOEm7iSC2nqPOdwxK7AINRUuo0PIm7Lpdd0mMo5sw631w==
+
 "@floating-ui/core@^1.2.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@floating-ui/core/-/core-1.2.0.tgz#ae7ae7923d41f3d84cb2fd88740a89436610bbec"

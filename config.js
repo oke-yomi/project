@@ -1,0 +1,5 @@
+export const CHANNEL_KEY_IOS =
+	"eyJzZXR0aW5nc191cmwiOiJodHRwczovL3lvbWk3MjA5LnplbmRlc2suY29tL21vYmlsZV9zZGtfYXBpL3NldHRpbmdzLzAxR1NENEZWUDQ0TTI0MzA1N1o3S1JGWTJELmpzb24ifQ==";
+
+export const CHANNEL_KEY_ANDROID =
+	"eyJzZXR0aW5nc191cmwiOiJodHRwczovL3lvbWk3MjA5LnplbmRlc2suY29tL21vYmlsZV9zZGtfYXBpL3NldHRpbmdzLzAxR1NENldYM0dKMjdXRkNSNThDUDE0MFgzLmpzb24ifQ==";
