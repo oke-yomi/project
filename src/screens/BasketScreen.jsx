@@ -43,7 +43,7 @@ const BasketScreen = () => {
 		<>
 			<SafeAreaView className="flex-1 bg-white">
 				<View className="flex-1 bg-gray-100">
-					<View className="p-5 border-b border-[#00ccbb] bg-white shadow-xs">
+					<View className="p-5 border-b border-[#e1398a] bg-white shadow-xs">
 						<View>
 							<Text className="text-lg font-bold text-center">Basket</Text>
 							<Text className="text-center text-gray-400">
@@ -54,7 +54,7 @@ const BasketScreen = () => {
 						<TouchableOpacity
 							onPress={navigation.goBack}
 							className="rounded-full bg-gray-100 absolute top-3 right-5">
-							<XCircleIcon color="#00ccbb" height={50} width={50} />
+							<XCircleIcon color="#e1398a" height={50} width={50} />
 						</TouchableOpacity>
 					</View>
 
@@ -65,7 +65,7 @@ const BasketScreen = () => {
 						/>
 						<Text className="flex-1">Deliver on 50-75 mins</Text>
 						<TouchableOpacity>
-							<Text className="text-[#00ccbb]">Change</Text>
+							<Text className="text-[#e1398a]">Change</Text>
 						</TouchableOpacity>
 					</View>
 
@@ -74,7 +74,7 @@ const BasketScreen = () => {
 							<View
 								key={key}
 								className="flex-row items-center space-x-3 bg-white py-2 px-5">
-								<Text className="text-[#00ccbb]">{items.length} x</Text>
+								<Text className="text-[#e1398a]">{items.length} x</Text>
 								<Image
 									source={{ uri: urlFor(items[0]?.image).url() }}
 									className="h-12 w-12 rounded-full"
@@ -87,7 +87,7 @@ const BasketScreen = () => {
 
 								<TouchableOpacity>
 									<Text
-										className="text-[#00ccbb] text-xs"
+										className="text-[#e1398a] text-xs"
 										onPress={() => dispatch(removeFromBasket({ id: key }))}>
 										Remove
 									</Text>
@@ -120,7 +120,7 @@ const BasketScreen = () => {
 
 						<TouchableOpacity
 							onPress={() => navigation.navigate("PreparingOrder")}
-							className="rounded-lg bg-[#00ccbb] p-4">
+							className="rounded-lg bg-[#e1398a] p-4">
 							<Text className="text-center text-white text-lg font-bold">
 								Place Order
 							</Text>

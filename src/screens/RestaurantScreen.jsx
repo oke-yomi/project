@@ -69,7 +69,7 @@ const RestaurantScreen = () => {
 					<TouchableOpacity
 						onPress={navigation.goBack}
 						className="absolute top-14 left-5 p-2 bg-gray-100 rounded-full">
-						<ArrowLeftIcon size={20} color="#00ccbb" />
+						<ArrowLeftIcon size={20} color="#e1398a" />
 					</TouchableOpacity>
 				</View>
 
@@ -100,7 +100,7 @@ const RestaurantScreen = () => {
 						<Text className="pl-2 flex-1 text-sm font-bold">
 							Have a food allergy?
 						</Text>
-						<ChevronRightIcon color="#00ccbb" />
+						<ChevronRightIcon color="#e1398a" />
 					</TouchableOpacity>
 				</View>
 

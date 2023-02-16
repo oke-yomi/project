@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView } from "react-native";
+import { SafeAreaView } from "react-native";
 import React from "react";
 import * as Animatable from "react-native-animatable";
 import * as Progress from "react-native-progress";
@@ -11,32 +11,34 @@ const PreparingOrderScreen = () => {
 	useEffect(() => {
 		setTimeout(() => {
 			navigation.navigate("Delivery");
-		}, 4000);
+		}, 7000);
 	}, []);
 
 	return (
-		<SafeAreaView className="bg-[#cc0063] flex-1 justify-center items-center">
-			<Animatable.Image
-				source={require("../../assets/delivery-image.gif")}
-				animation="slideInUp"
-				iterationCount={1}
-				className="h-96 w-96"
-			/>
+		<>
+			<SafeAreaView className="bg-[#cc0063] flex-1 justify-center items-center">
+				<Animatable.Image
+					source={require("../../assets/delivery-image.gif")}
+					animation="slideInUp"
+					iterationCount={1}
+					className="h-96 w-96"
+				/>
 
-			<Animatable.Text
-				animation="slideInUp"
-				iterationCount={1}
-				className="text-lg my-10 text-white font-bold text-center">
-				Waiting for the restaurant to accept your order
-			</Animatable.Text>
+				<Animatable.Text
+					animation="slideInUp"
+					iterationCount={1}
+					className="text-lg my-10 text-white font-bold text-center">
+					Waiting for the restaurant to accept your order
+				</Animatable.Text>
 
-			<Progress.Circle
-				size={60}
-				indeterminate={true}
-				color="white"
-				borderWidth={5}
-			/>
-		</SafeAreaView>
+				<Progress.Circle
+					size={60}
+					indeterminate={true}
+					color="white"
+					borderWidth={5}
+				/>
+			</SafeAreaView>
+		</>
 	);
 };
 

@@ -2,6 +2,7 @@ import {
 	Image,
 	SafeAreaView,
 	ScrollView,
+	StatusBar,
 	Text,
 	TextInput,
 	View,
@@ -50,6 +51,7 @@ const HomeScreen = () => {
 
 	return (
 		<>
+			<StatusBar barStyle="dark-content" backgroundColor="white" />
 			<SafeAreaView className="bg-white pt-5">
 				{/* Header */}
 				<View className="flex-row pb-3 items-center mx-4 space-x-2 px-1">
@@ -66,11 +68,11 @@ const HomeScreen = () => {
 						</Text>
 						<Text className="font-bold text-xl">
 							Current location
-							<ChevronDownIcon size={20} color="#00ccbb" />
+							<ChevronDownIcon size={20} color="#e1398a" />
 						</Text>
 					</View>
 
-					<UserIcon size={35} color="#00ccbb" />
+					<UserIcon size={35} color="#e1398a" />
 				</View>
 
 				{/* Search */}
@@ -84,7 +86,7 @@ const HomeScreen = () => {
 						/>
 					</View>
 
-					<AdjustmentsVerticalIcon color="#00ccbb" />
+					<AdjustmentsVerticalIcon color="#e1398a" />
 				</View>
 
 				<ScrollView
