@@ -11,10 +11,24 @@ import { useSelector } from "react-redux";
 import { selectRestaurant } from "../features/restaurantSlice";
 import { XMarkIcon } from "react-native-heroicons/outline";
 import * as Progress from "react-native-progress";
+import MapView, { Marker } from "react-native-maps";
+import call from "react-native-phone-call";
 
 const DeliveryScreen = () => {
 	const navigation = useNavigation();
 	const restaurant = useSelector(selectRestaurant);
+
+	const triggerCall = () => {
+		const phoneNumber = "08144976291";
+
+		const args = {
+			number: phoneNumber,
+			prompt: true,
+		};
+
+		// Make a call
+		call(args).catch(console.error);
+	};
 
 	return (
 		<>
@@ -46,6 +60,42 @@ const DeliveryScreen = () => {
 							Your order at {restaurant.title} is being processed
 						</Text>
 					</View>
+				</SafeAreaView>
+
+				<MapView
+					initialRegion={{
+						latitude: restaurant.lat,
+						longitude: restaurant.long,
+						latitudeDelta: 0.005,
+						longitudeDelta: 0.005,
+					}}
+					className="flex-1 -mt-10 z-0"
+					mapType="mutedStandard">
+					<Marker
+						coordinate={{
+							latitude: restaurant.lat,
+							longitude: restaurant.long,
+						}}
+						title={restaurant.title}
+						description={restaurant.short_description}
+						identifier="origin"
+						pinColor="#cc0063"
+					/>
+				</MapView>
+
+				<SafeAreaView className="bg-white flex-row items-center space-x-5 h-28">
+					<Image
+						source={{ uri: "https://links.papareact.com/wru" }}
+						className="h-12 w-12 bg-gray-300 rounded-full p-4 ml-5"
+					/>
+					<View className="flex-1">
+						<Text className="text-lg">Emmy Ray</Text>
+						<Text className="text-gray-400">Your Rider</Text>
+					</View>
+
+					<TouchableOpacity activeOpacity={0.5} onPress={triggerCall}>
+						<Text className="text-[#e1398a] text-lg mr-5 font-bold">Call</Text>
+					</TouchableOpacity>
 				</SafeAreaView>
 			</View>
 		</>
