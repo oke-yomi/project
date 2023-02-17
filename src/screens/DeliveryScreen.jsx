@@ -9,7 +9,10 @@ import React, { useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { useSelector } from "react-redux";
 import { selectRestaurant } from "../features/restaurantSlice";
-import { XMarkIcon } from "react-native-heroicons/outline";
+import {
+	XMarkIcon,
+	ChatBubbleBottomCenterTextIcon,
+} from "react-native-heroicons/outline";
 import * as Progress from "react-native-progress";
 import MapView, { Marker } from "react-native-maps";
 import call from "react-native-phone-call";
@@ -50,7 +53,12 @@ const DeliveryScreen = () => {
 							<XMarkIcon color="white" size={30} />
 						</TouchableOpacity>
 
-						<Text className="font-light text-white text-lg">Support</Text>
+						<TouchableOpacity
+							className="flex-row space-x-2 items-center"
+							onPress={() => showMessaging()}>
+							<ChatBubbleBottomCenterTextIcon color="white" size={20} />
+							<Text className="font-light text-white text-lg">Support</Text>
+						</TouchableOpacity>
 					</View>
 
 					<View className="bg-white mx-5 my-2 rounded-md p-6 z-50 shadow-md">
